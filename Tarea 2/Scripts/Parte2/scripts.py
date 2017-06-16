@@ -108,7 +108,7 @@ Y_test = np_utils.to_categorical(y_test, n_classes)
 #model.summary()
 
 #adagrad = Adagrad(lr=0.01, epsilon=1e-08, decay=0.0)
-#model.compile(loss='categorical', optimizer=adagrad, metrics=['accuracy'])
+#model.compile(loss='categorical_crossentropy', optimizer=adagrad, metrics=['accuracy'])
 #CNN = model.fit(X_train, Y_train, batch_size=1280, epochs=10, verbose=1, validation_data=(X_test, Y_test))
 
 #plt.plot(range(1,11), CNN.history['loss'])
