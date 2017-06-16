@@ -120,3 +120,21 @@ POOL = [(2,2), (4,4)]
 Tanto (D) como (E) se prueba manualmente los cambios, con el conjunto superior.
 """
 
+#######################################
+#          Visualizacion Pesos
+#######################################
+
+#model = Sequential()
+#model.add(Convolution2D(16, (5, 5), border_mode='same', activation='relu', input_shape=(n_channels, size_h, size_w)))
+#model.add(MaxPooling2D(pool_size=(4, 4)))
+#model.add(Convolution2D(512, (5, 5), border_mode='same', activation='relu'))
+#model.add(MaxPooling2D(pool_size=(4, 4)))
+#model.add(Flatten())
+#model.add(Dense(20, activation='relu'))
+#model.add(Dense(n_classes, activation='softmax'))
+#model.summary()
+
+#first = model.layers[0]
+#weights = np.array(first.get_weights())
+
+#print weight[0].shape
