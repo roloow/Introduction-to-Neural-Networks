@@ -50,27 +50,27 @@ x_train, y_train, x_test, y_test = load_CIFAR10('')
 
 class_names = ['Avion', 'Auto', 'Ave', 'Gato', 'Venado', 'Perro', 'Rana', 'Caballo', 'Barco', 'Camion']
 
-x_train = x_train.reshape((x_train.shape[0],32,32,3), order="F")
-x_test= x_test.reshape((x_test.shape[0],32,32,3), order="F")
+x_train = x_train.reshape((x_train.shape[0],32,32,3), order="F").transpose([0, 3, 1, 2])
+x_test= x_test.reshape((x_test.shape[0],32,32,3), order="F").transpose([0, 3, 1, 2])
 
 num_classes = 10
 
 y_train = keras.utils.to_categorical(y_train, num_classes)
 y_test = keras.utils.to_categorical(y_test, num_classes)
 
-model = Sequential()
-model.add(Convolution2D(64, (3, 3), padding='same', input_shape=(32,32,3)))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Convolution2D(64, (3, 3), padding='same'))
-model.add(Activation('relu'))
-model.add(MaxPooling2D(pool_size=(2, 2)))
-model.add(Flatten())
-model.add(Dense(512))
-model.add(Activation('relu'))
-model.add(Dense(num_classes))
-model.add(Activation('softmax'))
-model.summary()
+#model = Sequential()
+#model.add(Convolution2D(64, (3, 3), padding='same', input_shape=(3,32,32)))
+#model.add(Activation('relu'))
+#model.add(MaxPooling2D(pool_size=(2, 2)))
+#model.add(Convolution2D(64, (3, 3), padding='same'))
+#model.add(Activation('relu'))
+#model.add(MaxPooling2D(pool_size=(2, 2)))
+#model.add(Flatten())
+#model.add(Dense(512))
+#model.add(Activation('relu'))
+#model.add(Dense(num_classes))
+#model.add(Activation('softmax'))
+#model.summary()
 #
 #model.save('cnn1.h5')
 
@@ -99,4 +99,4 @@ opt = rmsprop(lr=0.001, decay=1e-6)
 model.compile(loss='categorical_crossentropy', optimizer=opt, metrics=['accuracy'])
 CNN = model.fit(x_train, y_train,batch_size=100,nb_epoch=25, validation_data=(x_test, y_test),shuffle=True)
 
-model.save('cnn_entrenada2.h5')
+#model.save('cnn_entrenada2.h5')
