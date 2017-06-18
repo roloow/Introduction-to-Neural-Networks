@@ -126,8 +126,8 @@ Tanto (D) como (E) se prueba manualmente los cambios, con el conjunto superior.
 #           Cantidad de filtros
 #######################################
 
-CAPA1 = [16, 32, 64]
-CAPA2 = [128, 256, 512]
+#CAPA1 = [16, 32, 64]
+#CAPA2 = [128, 256, 512]
 
 #model = Sequential()
 #model.add(Convolution2D(32, (3, 3), border_mode='same', activation='relu', input_shape=(n_channels, size_h, size_w)))
@@ -177,27 +177,27 @@ Ver filtros con Keras backend (TODO)
 #           Numeros Confusos
 #######################################
 
-model = load_model('Ideal.h5')
-
-for i in range(10):
-    indexes = []
-    data = []
-    for idx, category in enumerate(y_test):
-        if category == i:
-            indexes.append(idx)
-    for idx in indexes:
-        data.append(X_test[idx])
-    data = np.array(data)
-    prediction = model.predict(data, verbose=1)
-    
-    numb, enum = np.unique(np.argmax(prediction, axis=1), return_counts=True)
-    dic = dict(zip(numb, enum))
-    sort = sorted(dic.values())
-    first = 0
-    second = 0
-    for k, v in dic.items():
-        if v == sort[-1]:
-            first = k
-        elif v == sort[-2]:
-            second = k
-    print ('Class', i, "gets: ", first, "and", second)
+#model = load_model('Ideal.h5')
+#
+#for i in range(10):
+#    indexes = []
+#    data = []
+#    for idx, category in enumerate(y_test):
+#        if category == i:
+#            indexes.append(idx)
+#    for idx in indexes:
+#        data.append(X_test[idx])
+#    data = np.array(data)
+#    prediction = model.predict(data, verbose=1)
+#    
+#    numb, enum = np.unique(np.argmax(prediction, axis=1), return_counts=True)
+#    dic = dict(zip(numb, enum))
+#    sort = sorted(dic.values())
+#    first = 0
+#    second = 0
+#    for k, v in dic.items():
+#        if v == sort[-1]:
+#            first = k
+#        elif v == sort[-2]:
+#            second = k
+#    print ('Class', i, "gets: ", first, "and", second)
