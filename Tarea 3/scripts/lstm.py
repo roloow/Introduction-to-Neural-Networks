@@ -79,3 +79,6 @@ model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy']
 print(model.summary())
 
 model.fit(X_train, y_train, validation_data=(X_test, y_test), epochs=3, batch_size=64)
+model.save('dropout.h5')
+scores = model.evaluate(X_test, y_test, verbose=0)
+print("Accuracy: {0}".format(scores[1]*100))
